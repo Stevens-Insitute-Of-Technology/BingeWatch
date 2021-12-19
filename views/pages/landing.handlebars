@@ -1,0 +1,37 @@
+<div class="showcase">
+    <div class="container">
+        <div class="card-tansparent text-center">
+            <div class="card-body content">
+                <h1 class="card-title head">BingeWatch</h1>
+                <h2 class="card-text">One stop place to know what to watch next!</h2>
+                <a href="/login" class="btn btn-danger">Get Started</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="trend">
+    <p class="trend-head head">Trending Movies</p>
+    <div class="container">
+        <div class="row">
+            {{#each trending}}
+            <div class="col-3">
+                <div class="card mh-100 main-content">
+                    <img src="{{movie_img}}" class="card-img-top movie_card_img" alt="{{movie_name}} poster">
+                    <div class="card-body">
+                        <h3 class="card-title tname">{{movie_name}}</h3>
+                        <div class="extra">
+                            <ul>
+                                <li>{{cast}}</li>
+                                <li><a href="{{streaming_service.link}}">{{streaming_service.name}}</a></li>
+                                <li>{{genre}}</li>
+                            </ul>
+                            <a href="{{streaming_service.link}}" class="btn btn-danger">Watch Now</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="container overflow-hidden px-2">
+  <div class="center head">
+    <h1>All Movies</h1>
+  </div>
+  <div class="row gy-5">
+    <div class="col">
+      <a href="/movies/addMovie" class="btn btn-danger">
+        Add Movie
+      </a>
+    </div>
+  </div>
+  <div class="row gx-5">
+    <div class="col-3">
+      <div class="p-3 border bg-light">
+        <div class="form-group">
+          <label for="sort">Sort By:</label>
+          <select id="sort" class="form-control" name="sort">
+            <option value="alphabetically">A to Z</option>
+            <option value="rating">Rating</option>
+            <option value="watchCount">Watch Count</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rate">Rating:</label>
+          <select id="rate" class="form-control" name="rate">
+            <option value="all">All</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="genres">Genres:</label>
+          <select id="genres" class="form-control" name="genres">
+            <option value="all">All</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
+            <option value="Drama">Drama</option>
+            <option value="Horror">Horror</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Science-Fiction">Science-Fiction</option>
+            <option value="Thriller">Thriller</option>
+          </select>
+        </div>
+        <!-- <div class="form-group">
+          <label for="service">Streaming Service:</label>
+          <select id="service" class="form-control" name="service">
+            <option value="all">All</option>
+            <option value="netflix">Netflix</option>
+            <option value="amazon">Amazon</option>
+            <option value="disney">Disney+</option>
+            <option value="hulu">Hulu</option>
+            <option value="others">Others</option>
+          </select>
+        </div> -->
+        <div class="form-group">
+          <label for="release_year">Release Year:</label>
+          <input type="number" class="form-control" value="" min="1888" max="2099" step="1" id="release_year"
+            placeholder="Enter release year" name="release_year">
+        </div>
+        <br>
+        <div class="gap-2 d-md-flex justify-content-md-end">
+          <button id="apply" name="apply" class="btn btn-danger">Apply</button>
+          <button id="reset" name="reset" class="btn btn-light me-md-2 border">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div id="TEST" class="col">
+      <div class="p-4 border bg-light">
+        <div id="showList">
+          {{#each movieList}}
+          <div class="card mb-3 cardall">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{movie_img}}" class="img-fluid rounded-start movie_card_img" alt="{{movie_name}} poster"
+                  id="{{_id}}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <a class="d-inline" href="/movies/{{_id}}">
+                    <h2 class="card-title">{{movie_name}}</h2>
+                  </a>
+                  <button name="reportMovie" class="reportMovie d-inline btn btn-primary" data-username="{{../user.username}}"
+                    data-movid="{{this._id}}">Report</button>
+                  <label for="release_year">Release Year: {{release_year}}</label>
+                  <br>
+                  <label>Streaming On: </label>
+                  <a href={{streaming_service.link}}>{{streaming_service.name}}</a>
+                  <br>
+                  <label>Genres: {{genre}}</label>
+                  <br>
+                  <label>Rating: {{rating}}</label>
+                  <br>
+                  <label>Views: {{views}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>

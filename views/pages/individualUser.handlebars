@@ -1,0 +1,81 @@
+<div class='container'>
+	<div class='row justify-content-center'>
+		<div class='col-6 mt-1'>
+			<h1 class='text-center mt-3 mb-2'>{{user.name}}</h1>
+			<p class='lead text-center'>{{user.email}}</p>
+			<p class='lead text-center'>Followers:
+				{{user.followers.length}}
+				| Following:
+				{{user.following.length}}</p>
+			<div class='user-avatar'>
+				<img class='img-avatar' src='{{user.profile_pic}}' alt='User avatar' />
+			</div>
+
+		</div>
+	</div>
+	<br />
+	<div class="text-center">
+		<button class="btn btn-primary" id="follow" {{hidden}} name="follow" type="button"
+			data-user="{{user1}}">{{follow}}</button>
+	</div>
+	{{#if_eq follow 'Unfollow'}}
+	<div id='stats' class='row justify-content-center'>
+		<div class='card w-50'>
+			<div class='card-body'>
+				<h2 class='card-title'>Favourites</h2>
+				{{user.favourites}}
+				<br />
+				<a href='/movies/all' class='btn btn-outline-danger'>Watch Now</a>
+			</div>
+			<hr />
+			<div class='card-body'>
+				<h2 class='card-title'>Watchlist</h2>
+				{{user.watchlist}}
+				<br />
+				<a href='/movies/all' class='btn btn-outline-danger'>Watch Now</a>
+			</div>
+		</div>
+	</div>
+	{{else}}
+	{{#if user.private}}
+	{{else}}
+	<div id='stats' class='row justify-content-center'>
+		<div class='card w-50'>
+			<div class='card-body'>
+				<h2 class='card-title'>Favourites</h2>
+				{{user.favourites}}
+				<br />
+				<a href='/movies/all' class='btn btn-outline-danger'>Watch Now</a>
+			</div>
+			<hr />
+			<div class='card-body'>
+				<h2 class='card-title'>Watchlist</h2>
+				{{user.watchlist}}
+				<br />
+				<a href='/movies/all' class='btn btn-outline-danger'>Watch Now</a>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	{{/if_eq}}
+	{{!-- {{#if user.private}}
+	{{else}}
+	<div id='stats' class='row justify-content-center'>
+		<div class='card w-50'>
+			<div class='card-body'>
+				<h5 class='card-title'>Favourites</h5>
+				{{user.favourites}}
+				<br />
+				<a href='/movies/all' class='btn btn-outline-danger'>Watch Now</a>
+			</div>
+			<hr />
+			<div class='card-body'>
+				<h5 class='card-title'>Watchlist</h5>
+				{{user.watchlist}}
+				<br />
+				<a href='/movies/all' class='btn btn-outline-danger'>Watch Now</a>
+			</div>
+		</div>
+	</div>
+	{{/if}} --}}
+</div>
